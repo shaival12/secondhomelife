@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2>Add New Home</h2>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @home, local: true) do |form| %>
+            <% if @home.errors.any? %>
+              <div class="alert alert-danger">
+                <h4><%= pluralize(@home.errors.count, "error") %> prohibited this home from being saved:</h4>
+                <ul>
+                  <% @home.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <%= form.label :address, class: 'form-label' %>
+                  <%= form.text_field :address, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <%= form.label :city, class: 'form-label' %>
+                  <%= form.text_field :city, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <%= form.label :state, class: 'form-label' %>
+                  <%= form.text_field :state, class: 'form-control', value: 'CA' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <%= form.label :zip_code, class: 'form-label' %>
+                  <%= form.text_field :zip_code, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <%= form.label :price, class: 'form-label' %>
+                  <%= form.number_field :price, class: 'form-control', step: 0.01 %>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-3">
+                  <%= form.label :bedrooms, class: 'form-label' %>
+                  <%= form.number_field :bedrooms, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-3">
+                  <%= form.label :bathrooms, class: 'form-label' %>
+                  <%= form.number_field :bathrooms, class: 'form-control', step: 0.5 %>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-3">
+                  <%= form.label :square_feet, class: 'form-label' %>
+                  <%= form.number_field :square_feet, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :image_url, class: 'form-label' %>
+              <%= form.url_field :image_url, class: 'form-control', placeholder: 'https://example.com/image.jpg' %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :description, class: 'form-label' %>
+              <%= form.text_area :description, class: 'form-control', rows: 4 %>
+            </div>
+
+            <div class="d-flex gap-2">
+              <%= form.submit 'Create Home', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', homes_path, class: 'btn btn-secondary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

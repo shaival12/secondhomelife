@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1>SecondHomeLife</h1>
+      <p class="lead text-muted mb-0">Plan B of your life</p>
+    </div>
+    <%= link_to 'Add New Home', new_home_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="row">
+    <% @homes.each do |home| %>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <% if home.image_url.present? %>
+            <%= image_tag home.image_url, class: 'card-img-top', style: 'height: 200px; object-fit: cover;', alt: home.address %>
+          <% else %>
+            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+              <span class="text-muted">No Image</span>
+            </div>
+          <% end %>
+          
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= home.address %></h5>
+            <p class="card-text text-muted">
+              <%= home.city %>, <%= home.state %> <%= home.zip_code %>
+            </p>
+            <p class="card-text">
+              <strong>$<%= number_with_delimiter(home.price) %></strong>
+            </p>
+            <p class="card-text">
+              <%= home.bedrooms %> bed • <%= home.bathrooms %> bath • <%= number_with_delimiter(home.square_feet) %> sq ft
+            </p>
+            <% if home.description.present? %>
+              <p class="card-text"><%= truncate(home.description, length: 100) %></p>
+            <% end %>
+            
+            <div class="mt-auto">
+              <%= link_to 'View Details', home, class: 'btn btn-outline-primary btn-sm me-2' %>
+              <%= link_to 'Edit', edit_home_path(home), class: 'btn btn-outline-secondary btn-sm me-2' %>
+              <%= link_to 'Delete', home, method: :delete, 
+                          data: { confirm: 'Are you sure?' }, 
+                          class: 'btn btn-outline-danger btn-sm' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @homes.empty? %>
+    <div class="text-center py-5">
+      <h3 class="text-muted">No homes available</h3>
+      <p class="text-muted">Get started by adding your first home!</p>
+      <%= link_to 'Add New Home', new_home_path, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
