@@ -3,9 +3,15 @@ class HomesController < ApplicationController
 
   def index
     @homes = Home.all
+    @home_service = HomeService.new
+    @home_service.call
   end
 
-  def show
+  def show # show the home details by id
+  end
+
+  def show_by_id # show the home details by id
+    @home = Home.find(params[:id])
   end
 
   def new
