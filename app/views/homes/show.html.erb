@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-8">
       <% if @home.image_url.present? %>
-        <%= image_tag @home.image_url, class: 'img-fluid rounded mb-4', alt: @home.address %>
+        <%= image_tag @home.webp_image_url, 
+            class: 'img-fluid rounded mb-4', 
+            alt: @home.address,
+            loading: 'lazy',
+            onerror: "this.onerror=null; this.src='#{@home.image_url}'" %>
       <% else %>
         <div class="bg-light rounded mb-4 d-flex align-items-center justify-content-center" style="height: 400px;">
           <span class="text-muted fs-4">No Image Available</span>

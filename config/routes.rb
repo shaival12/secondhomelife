@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :homes
+  resources :contact, only: [:new, :create]
   root "homes#index"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
