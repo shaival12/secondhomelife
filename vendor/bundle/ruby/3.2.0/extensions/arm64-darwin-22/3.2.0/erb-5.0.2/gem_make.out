@@ -1,0 +1,19 @@
+current directory: /Users/amy/Documents/projects_2025/ruby-on-rails/secondhomelife/vendor/bundle/ruby/3.2.0/gems/erb-5.0.2/ext/erb/escape
+/opt/homebrew/opt/ruby@3.2/bin/ruby extconf.rb
+checking for rb_ext_ractor_safe() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/amy/Documents/projects_2025/ruby-on-rails/secondhomelife/vendor/bundle/ruby/3.2.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20250915-69730-xlg8aa sitelibdir\=./.gem.20250915-69730-xlg8aa clean
+
+current directory: /Users/amy/Documents/projects_2025/ruby-on-rails/secondhomelife/vendor/bundle/ruby/3.2.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20250915-69730-xlg8aa sitelibdir\=./.gem.20250915-69730-xlg8aa
+compiling escape.c
+linking shared-object erb/escape.bundle
+
+current directory: /Users/amy/Documents/projects_2025/ruby-on-rails/secondhomelife/vendor/bundle/ruby/3.2.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20250915-69730-xlg8aa sitelibdir\=./.gem.20250915-69730-xlg8aa install
+/usr/bin/install -c -m 0755 escape.bundle ./.gem.20250915-69730-xlg8aa/erb
+
+current directory: /Users/amy/Documents/projects_2025/ruby-on-rails/secondhomelife/vendor/bundle/ruby/3.2.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20250915-69730-xlg8aa sitelibdir\=./.gem.20250915-69730-xlg8aa clean
